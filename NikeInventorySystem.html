@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <style>
+        .main {
+
+            width: 90vw;
+
+            height: 50vw;
+
+            border: 1px solid black;
+
+            margin: auto;
+
+            display: flex;
+
+        }
+
+        .main>div:nth-child(1) {
+
+            width: 25%;
+
+            height: 100%;
+
+            border: 1px solid red;
+
+        }
+
+        .main>div:nth-child(2) {
+
+            width: 75%;
+
+            height: 100%;
+
+            border: 1px solid red;
+
+        }
+
+        .form {
+
+            margin: 20px;
+
+        }
+
+        .form>input {
+
+            margin-top: 20px;
+
+            height: 20px;
+
+            font-weight: bold;
+
+            border: 1px solid black;
+
+        }
+
+
+
+        .but {
+
+            margin: 20px 0px;
+
+            text-align: center;
+
+            background-color: white;
+
+            color: rgb(19, 224, 197);
+
+            border: 1px solid black;
+
+
+
+            width: 160px;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+        }
+
+
+
+        .bord {
+
+            width: 200px;
+
+            height: 200px;
+
+            border: 1px solid black;
+
+            margin: 20px;
+
+            float: left;
+
+        }
+
+        ​ #baba {
+
+            display: grid;
+
+            grid-template-columns: auto auto auto;
+
+            grid-gap: 20px;
+
+        }
+
+        .bord>.bat11 {}
+    </style>
+
+</head>
+
+<body>
+
+    <div class="main">
+
+        <div>
+
+            <form class="form">
+
+                <input placeholder="Name" id="inp1">
+
+                <input placeholder="Price" id="inp2" value="" type="number">
+
+                <input placeholder="Category" id="inp3" value="">
+
+                <input placeholder="Estimated delivery days" id="inp4" type="number" value="">
+
+                <input placeholder="Discription" id="inp5" value="">
+
+                <button class="but" onclick="add()">ADD PRODUCT</button>
+
+            </form>
+
+        </div>
+
+        <div id="baba"></div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+
+
+
+
+
+
+
+
+
+
+    let baba = document.getElementById('baba')
+
+    function add() {
+
+        let baba = document.getElementById('baba')
+
+        var nam = document.getElementById('inp1').value
+
+        var pric = document.getElementById('inp2').value
+
+        var Category = document.getElementById('inp3').value
+
+        var EstimatedDelivery = document.getElementById('inp4').value
+
+        var discription = document.getElementById('inp5').value
+
+
+
+        var obj = { nam: nam, pric: pric, Category: Category, EstimatedDelivery: EstimatedDelivery, discription: discription };
+
+        console.log(obj);
+
+
+
+
+
+        var div = document.createElement('div')
+
+        div.setAttribute('class', 'bord')
+
+        var bat1 = document.createElement('button')
+
+        bat1.innerHTML = 'Remove'
+
+        bat1.setAttribute('class', 'bat11')
+
+        bat1.addEventListener('click', pahla)
+
+        var bat2 = document.createElement('button')
+
+        bat2.textContent = 'Update'
+
+        bat2.setAttribute('class', 'bat11')
+
+        bat2.addEventListener('click', dusra)
+
+        var para1 = document.createElement('p');
+
+        para1.innerHTML = Object.values(obj)
+
+
+
+        div.appendChild(para1)
+
+        div.appendChild(bat1)
+
+        div.appendChild(bat2)
+
+        baba.appendChild(div)
+
+        function dusra() {
+
+            var new_price = prompt('Enter price')
+
+            obj[pric] = document.querySelector('new_price').value
+
+        }
+
+        function pahla() {
+
+            var rem = document.querySelector('bord')
+
+            baba.remove(rem)
+
+        }
+
+    }
+
+
+
+
+
+
+
+</script>
